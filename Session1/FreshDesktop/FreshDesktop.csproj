@@ -61,6 +61,7 @@
     <Compile Include="AddOrEditListingForm.Designer.cs">
       <DependentUpon>AddOrEditListingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateUserAction.cs" />
     <Compile Include="Amenity.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

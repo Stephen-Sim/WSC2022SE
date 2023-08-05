@@ -1,0 +1,13 @@
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\bin\Debug\UnitTest.exe.config
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\bin\Debug\UnitTest.exe
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\bin\Debug\UnitTest.pdb
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\bin\Debug\EntityFramework.dll
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\bin\Debug\EntityFramework.xml
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\obj\Debug\UnitTest.csproj.AssemblyReference.cache
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\obj\Debug\UnitTest.csproj.SuggestedBindingRedirects.cache
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\obj\Debug\UnitTest.csproj.CoreCompileInputs.cache
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\obj\Debug\UnitTest.csproj.CopyComplete
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\obj\Debug\UnitTest.exe
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTest\obj\Debug\UnitTest.pdb

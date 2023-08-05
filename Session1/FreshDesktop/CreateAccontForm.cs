@@ -99,8 +99,8 @@ namespace FreshDesktop
                 FamilyCount = (int)numericUpDown1.Value
             };
 
-            ent.Users.Add(user);
-            ent.SaveChanges();
+            CreateUserAction createUserAction = new CreateUserAction();
+            createUserAction.InsertUser(user);
 
             this.Hide();
 

@@ -1,0 +1,13 @@
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\bin\Debug\UnitTestTests1.dll
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\bin\Debug\UnitTestTests1.pdb
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\bin\Debug\UnitTest.exe
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\bin\Debug\EntityFramework.dll
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\bin\Debug\UnitTest.pdb
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\bin\Debug\UnitTest.exe.config
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\bin\Debug\EntityFramework.xml
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\obj\Debug\UnitTestTests1.csproj.AssemblyReference.cache
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\obj\Debug\UnitTestTests1.csproj.CoreCompileInputs.cache
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\obj\Debug\UnitTestTests1.csproj.CopyComplete
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\obj\Debug\UnitTestTests1.dll
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\UnitTest\UnitTestTests1\obj\Debug\UnitTestTests1.pdb
