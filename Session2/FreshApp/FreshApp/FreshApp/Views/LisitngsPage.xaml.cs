@@ -35,7 +35,7 @@ namespace FreshApp.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            App.Current.Properties.Clear();
+            Application.Current.Properties.Clear();
             App.Current.MainPage = new NavigationPage(new MainPage());
         }
 

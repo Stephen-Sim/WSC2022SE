@@ -16,7 +16,7 @@ namespace FreshApp
 
         void NavigatePage()
         {
-            if (App.Current.Properties.ContainsKey("user_id"))
+            if (Application.Current.Properties.ContainsKey("user_id"))
             {
                 MainPage = new NavigationPage(new LisitngsPage());
             }

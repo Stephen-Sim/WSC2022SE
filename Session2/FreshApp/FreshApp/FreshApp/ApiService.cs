@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms.Internals;
+using Xamarin.Forms;
 
 namespace FreshApp
 {
@@ -27,7 +27,7 @@ namespace FreshApp
             if (res.IsSuccessStatusCode)
             {
                 var result = await res.Content.ReadAsStringAsync();
-                App.Current.Properties["user_id"] = JsonConvert.DeserializeObject<long>(result);
+                Application.Current.Properties["user_id"] = JsonConvert.DeserializeObject<long>(result);
                 return true;
             }
 
