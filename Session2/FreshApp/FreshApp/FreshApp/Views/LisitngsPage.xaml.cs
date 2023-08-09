@@ -39,9 +39,10 @@ namespace FreshApp.Views
             App.Current.MainPage = new NavigationPage(new MainPage());
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
+        private async void Button_Clicked_1(object sender, EventArgs e)
         {
-
+            var item = (Item)(sender as Button).CommandParameter;
+            await Application.Current.MainPage.Navigation.PushAsync(new PropertyPriceManagementForm(item));
         }
     }
 }

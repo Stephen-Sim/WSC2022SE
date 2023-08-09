@@ -29,3 +29,4 @@ C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp\obj\Debug\n
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp\obj\Debug\netstandard2.0\refint\FreshApp.dll
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp\obj\Debug\netstandard2.0\FreshApp.pdb
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp\obj\Debug\netstandard2.0\Views\LisitngsPage.xaml.g.cs
+C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp\obj\Debug\netstandard2.0\Views\PropertyPriceManagementForm.xaml.g.cs
