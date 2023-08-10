@@ -25,6 +25,18 @@ namespace FreshApp.Views
             ApiService = new ApiService();
 
             this.Title = $"Property {Item.Title} Prices";
+
+            loadItemPrices();
+        }
+
+        async void loadItemPrices()
+        {
+            var res = await ApiService.GetItemPrices(this.Item.Id);
+
+            if (res != null)
+            {
+                itemPriceList.ItemsSource = res;
+            }
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

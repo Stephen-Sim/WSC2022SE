@@ -42,5 +42,36 @@ namespace FreshApi.Controllers
 
             return items;
         }
+
+        [HttpGet]
+        public object GetItemPrices(long itemId)
+        {
+            var itemPrices = ent.ItemPrices.Where(x => x.ItemID == itemId).ToList().Select(x => new
+            {
+                x.ID,
+                Status = new Func<string>(() =>
+                {
+                    var isBooked = x.BookingDetails.Any();
+
+                    if (isBooked)
+                    {
+                        return "booked";
+                    }
+
+                    var isHoliday = ent.DimDates.Any(y => y.Date == x.Date && y.isHoliday);
+
+                    if (isHoliday)
+                    {
+                        return "holiday";
+                    }
+
+                    return string.Empty;
+                })(),
+                Date = x.Date.ToString("yyyy/MM/dd"),
+                Details = $"${x.Price} ({x.CancellationPolicy.Name})"
+            });
+
+            return itemPrices;
+        }
     }
 }

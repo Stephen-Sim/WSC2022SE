@@ -1,16 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:FreshApp.Models"
              x:Class="FreshApp.Views.PropertyPriceManagementForm" NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <StackLayout Margin="5">
 
-            <Frame BackgroundColor="Transparent" BorderColor="LightGray" Padding="10">
-                <ListView>
+            <Frame BackgroundColor="Transparent" BorderColor="LightGray" Padding="5">
+                <ListView x:Name="itemPriceList" HasUnevenRows="True">  
                     <ListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="models:ItemPrice">
                             <ViewCell>
-
+                                <SwipeView>
+                                    <SwipeView.LeftItems>
+                                        <SwipeItems Mode="Execute">
+                                            <SwipeItem/>
+                                        </SwipeItems>
+                                    </SwipeView.LeftItems>
+                                    <Grid RowDefinitions="30" ColumnDefinitions="30, 1*, 3*">
+                                        <Image Source="{Binding Status}" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand"/>
+                                        <Label Grid.Column="1" VerticalOptions="Center" Text="{Binding Date}"/>
+                                        <Label Grid.Column="2" VerticalOptions="Center" Text="{Binding Details}"/>
+                                    </Grid>
+                                </SwipeView>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
