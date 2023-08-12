@@ -13,13 +13,13 @@
                                 <SwipeView>
                                     <SwipeView.LeftItems>
                                         <SwipeItems Mode="Execute">
-                                            <SwipeItem/>
+                                            <SwipeItem Command="{Binding Path=BindingContext.SwipeLeftDeleteItemCommand, Source={x:Reference Name=itemPriceList}}" CommandParameter="{Binding .}"/>
                                         </SwipeItems>
                                     </SwipeView.LeftItems>
 
                                     <SwipeView.RightItems>
                                         <SwipeItems Mode="Execute">
-                                            <SwipeItem/>
+                                            <SwipeItem Command="{Binding Path=BindingContext.SwipeRightEditItemCommand, Source={x:Reference Name=itemPriceList}}" CommandParameter="{Binding .}"/>
                                         </SwipeItems>
                                     </SwipeView.RightItems>
                                     

@@ -1,6 +1,7 @@
 ﻿using FreshApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -72,6 +73,43 @@ namespace FreshApi.Controllers
             });
 
             return itemPrices;
+        }
+
+        [HttpGet]
+        public object DeleteItemPrice(long itemPriceId)
+        {
+            try
+            {
+                var itemPrice = ent.ItemPrices.FirstOrDefault(x => x.ID == itemPriceId);
+
+                ent.ItemPrices.Remove(itemPrice);
+                ent.SaveChanges();
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        public object EditItemPrice(dynamic ip)
+        {
+            try
+            {
+                var itemPrice = ent.ItemPrices.ToList().FirstOrDefault(x => x.ID == (long)ip.ID);
+                itemPrice.CancellationPolicyID = (long)ip.CancellationPolicyID;
+                itemPrice.Price = (decimal)ip.Price;
+
+                ent.SaveChanges();
+                return Ok();
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.Message);
+                return BadRequest();
+            }
         }
     }
 }

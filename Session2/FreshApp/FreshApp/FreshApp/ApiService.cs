@@ -31,7 +31,6 @@ namespace FreshApp
                 return true;
             }
 
-
             return false;
         }
 
@@ -47,6 +46,38 @@ namespace FreshApp
             var url = this.Url + $"GetItemPrices?itemId={itemId}";
             var res = await client.GetStringAsync(url);
             return JsonConvert.DeserializeObject<List<ItemPrice>>(res);
+        }
+
+        public async Task<bool> DeleteItemPrice(long itemPriceId)
+        {
+            var url = this.Url + $"DeleteItemPrice?itemPriceId={itemPriceId}";
+            var res = await client.GetAsync(url);
+
+            if (res.IsSuccessStatusCode)
+            {
+                var result = await res.Content.ReadAsStringAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> EditItemPrice(object ip)
+        {
+            var url = this.Url + $"EditItemPrice";
+
+            var json = JsonConvert.SerializeObject(ip);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var res = await client.PostAsync(url, data);
+
+            if (res.IsSuccessStatusCode)
+            {
+                var result = await res.Content.ReadAsStringAsync();
+                return true;
+            }
+
+            return false;
         }
     }
 }
