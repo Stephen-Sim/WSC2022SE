@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mWIiSusvK1d+1TBAQrtu3zOtvHiWtEdWpa8YnXcrFwjEfNHTwAErXQvQEltnFcHTW+uTPJWXhmbKNXDEqvtQAQ==",
+  "dgSpecHash": "+Xl4jpGwY1qPIY+VIxOH12jDOGOgZO//jsORJoZb1FthE9MNalgtE92mfJjrDytqL97LLy/kb7+ULOUQdX9wog==",
   "success": true,
   "projectFilePath": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Fresh\\FreshMobile\\FreshApp\\FreshApp\\FreshApp.Android\\FreshApp.Android.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\simsh\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
+    "C:\\Users\\simsh\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\simsh\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\simsh\\.nuget\\packages\\xamarin.androidx.activity\\1.2.4.1\\xamarin.androidx.activity.1.2.4.1.nupkg.sha512",
     "C:\\Users\\simsh\\.nuget\\packages\\xamarin.androidx.annotation\\1.2.0.1\\xamarin.androidx.annotation.1.2.0.1.nupkg.sha512",

@@ -700,6 +700,9 @@ C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\mipmap-xxhdpi\launcher_foreground.png
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\mipmap-xxxhdpi\icon.png
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\mipmap-xxxhdpi\launcher_foreground.png
+C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\drawable\holiday.png
+C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\drawable\logo.png
+C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\drawable\booked.png
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\uploadflags.txt
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\resolvedassemblies.hash
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\android\assets\FormsViewGroup.dll
@@ -1296,6 +1299,3 @@ C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\stamp\_GenerateJavaStubs.stamp
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\stamp\_ResolveLibraryProjectImports.stamp
-C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\drawable\logo.png
-C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\drawable\holiday.png
-C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\res\drawable\booked.png

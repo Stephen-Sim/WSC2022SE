@@ -1,12 +1,3 @@
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\FreshApp.Android.dll
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\FreshApp.Android.pdb
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp.apk
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp.aab
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp-Signed.aab
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp-Signed.apk
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp-Signed.apk.idsig
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\FreshApp.dll
-C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\FreshApp.pdb
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\MonoAndroid,Version=v13.0.AssemblyAttributes.cs
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\build.props
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\adb.props
@@ -41,6 +32,15 @@ C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.An
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\R.txt
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\R.cs.flag
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\FreshApp.Android.csproj.CoreCompileInputs.cache
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\FreshApp.Android.dll
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\FreshApp.Android.pdb
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp.apk
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp.aab
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp-Signed.aab
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp-Signed.apk
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\com.companyname.freshapp-Signed.apk.idsig
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\FreshApp.dll
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\bin\Debug\FreshApp.pdb
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\FreshApp.Android.csproj.CopyComplete
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\FreshApp.Android.dll
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\FreshApp.Android.pdb
@@ -636,3 +636,4 @@ C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.An
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\stamp\_GenerateJavaStubs.stamp
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\simsh\Desktop\WSC2022SE\Fresh\FreshMobile\FreshApp\FreshApp\FreshApp.Android\obj\Debug\130\android\assets\Newtonsoft.Json.dll

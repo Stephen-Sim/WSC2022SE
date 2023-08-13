@@ -28,6 +28,8 @@ namespace FreshApp.Views
 
             loadItemPrices();
 
+            EditFrame.IsVisible = false;
+
             this.BindingContext = this;
         }
 
@@ -97,7 +99,8 @@ namespace FreshApp.Views
 
                     if (isTrue)
                     {
-
+                        AddFrame.IsVisible = false;
+                        EditFrame.IsVisible = true;
                     }
                 });
             }
