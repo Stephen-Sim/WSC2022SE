@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m2X6+32eaTD4XWjtyS7YXRTcfl8WDA7Yj5NAGfeV27cTYi3UM1tjpvjiiN5MksuKTiup7ztRbogLP1tpv/OHrA==",
+  "dgSpecHash": "iO7U4mLeDfnMoAmSwV9df8/aukNmDKy7EwrYPOU85O+CUYm2UIU23Fu2UQSG0YjwO4tv59XuDokvZUB+tZ2DXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Fresh\\FreshApp\\FreshApp\\FreshApp.csproj",
+  "projectFilePath": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Fresh\\FreshMobile\\FreshApp\\FreshApp\\FreshApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\simsh\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\simsh\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",

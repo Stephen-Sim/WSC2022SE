@@ -30,8 +30,6 @@ namespace FreshApp
 			global::Microsoft.Maui.Controls.Compatibility.Resource.Attribute.scrollViewStyle = global::FreshApp.Resource.Attribute.scrollViewStyle;
 			global::Microsoft.Maui.Controls.Compatibility.Resource.Drawable.abc_ic_clear_material = global::FreshApp.Resource.Drawable.abc_ic_clear_material;
 			global::Microsoft.Maui.Controls.Compatibility.Resource.Drawable.abc_ic_search_api_material = global::FreshApp.Resource.Drawable.abc_ic_search_api_material;
-			global::Microsoft.Maui.Controls.Compatibility.Resource.Layout.tabbar = global::FreshApp.Resource.Layout.tabbar;
-			global::Microsoft.Maui.Controls.Compatibility.Resource.Layout.toolbar = global::FreshApp.Resource.Layout.toolbar;
 			global::Microsoft.Maui.Controls.Compatibility.Resource.Style.collectionViewTheme = global::FreshApp.Resource.Style.collectionViewTheme;
 			global::Microsoft.Maui.Controls.Compatibility.Resource.Style.scrollViewTheme = global::FreshApp.Resource.Style.scrollViewTheme;
 			global::Microsoft.Maui.Controls.Resource.Animation.enterfromleft = global::FreshApp.Resource.Animation.enterfromleft;
@@ -10483,10 +10481,10 @@ namespace FreshApp
 			public const int support_simple_spinner_dropdown_item = 2131427445;
 			
 			// aapt resource value: 0x7F0B0076
-			public const int tabbar = 2131427446;
+			public const int Tabbar = 2131427446;
 			
 			// aapt resource value: 0x7F0B0077
-			public const int toolbar = 2131427447;
+			public const int Toolbar = 2131427447;
 			
 			static Layout()
 			{

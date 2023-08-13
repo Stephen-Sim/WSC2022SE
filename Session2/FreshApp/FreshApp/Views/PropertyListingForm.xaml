@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FreshApp.Views.PropertyListingForm"
+             Title="Your Listings:">
+    <StackLayout>
+        <ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="↪️" HeightRequest="60" WidthRequest="60" CornerRadius="50" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked"/>
+    </StackLayout>
+</ContentPage>
