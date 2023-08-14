@@ -29,5 +29,18 @@ namespace FreshApi.Controllers
 
             return user.ID;
         }
+
+        [HttpGet]
+        public object GetItems(long userId)
+        {
+            var items = ent.Items.ToList().Where(x => x.UserID == userId).OrderByDescending(x => x.ItemPrices.Where(y => y.BookingDetails != null).Count()).Select(x => new
+            {
+                x.ID,
+                x.Title,
+                Date = x.ItemPrices.Any() ? x.ItemPrices.OrderByDescending(y => y.Date).First().Date.ToString("yyyy/MM/dd") : System.DateTime.Today.AddDays(5).ToString("yyyy/MM/dd"),
+            });
+
+            return Ok(items);
+        }
     }
 }

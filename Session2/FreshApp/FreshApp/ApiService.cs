@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FreshApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,14 @@ namespace FreshApp
             }
 
             return false;
+        }
+
+        public async Task<List<Item>> GetItems(long userId)
+        {
+            var url = this.Url + $"GetItems?userId={userId}";
+            var res = await client.GetStringAsync(url);
+            var result = JsonConvert.DeserializeObject<List<Item>>(res);
+            return result;
         }
     }
 }

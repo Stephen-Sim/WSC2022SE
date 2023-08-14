@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:FreshApp.Models"
              x:Class="FreshApp.Views.PropertyListingForm"
              Title="Your Listings:">
     <StackLayout>
-        <ListView>
+        <ListView x:Name="ItemListView" HasUnevenRows="True">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="models:Item">
                     <ViewCell>
-                        
+                        <Grid RowDefinitions="60" ColumnDefinitions="60, *, 60">
+                            <Frame HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="50" HeightRequest="50" CornerRadius="50" BackgroundColor="LightGray"/>
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="{Binding Title}"/>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Last date of pricing: "/>
+                                            <Span Text="{Binding Date}" TextColor="Red"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                            <Button Grid.Column="2" Text="$" FontSize="10" WidthRequest="40" HeightRequest="40" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked_1" CornerRadius="50"/>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
