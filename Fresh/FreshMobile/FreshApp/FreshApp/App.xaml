@@ -18,20 +18,24 @@
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="#bbbbbb"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
 
         <Style TargetType="Entry">
             <Setter Property="BackgroundColor" Value="#bbbbbb"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
 
         <Style TargetType="Picker">
             <Setter Property="BackgroundColor" Value="#bbbbbb"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
 
         <Style TargetType="DatePicker">
             <Setter Property="BackgroundColor" Value="#bbbbbb"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
         </Style>
     </Application.Resources>
