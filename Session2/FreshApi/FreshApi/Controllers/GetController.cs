@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 
 namespace FreshApi.Controllers
@@ -41,6 +42,33 @@ namespace FreshApi.Controllers
             });
 
             return Ok(items);
+        }
+
+        [HttpGet]
+        public object GetItemPrices(long ItemId)
+        {
+            var itemPrices = ent.ItemPrices.ToList().Where(x => x.ItemID == ItemId).Select(x => new { 
+                x.ID,
+                Date = x.Date.ToString("yyyy/MM/dd"),
+                CancellationPolicy = x.CancellationPolicy.Name,
+                x.Price,
+                Status = new Func<string>(() =>
+                {
+                    if (x.BookingDetails.Any())
+                    {
+                        return "booked";
+                    }
+
+                    if (ent.DimDates.Any(y => y.Date == x.Date && y.isHoliday == true))
+                    {
+                        return "holiday";
+                    }
+
+                    return "";
+                })()
+            }).ToList();
+
+            return Ok(itemPrices);
         }
     }
 }

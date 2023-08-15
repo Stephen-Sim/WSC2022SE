@@ -23,7 +23,10 @@
     <MauiXaml Update="Views\MainPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\PropertyListingForm.xaml">
+    <MauiXaml Update="Views\PropertyListingPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\PropertyManagementPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

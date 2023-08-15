@@ -49,6 +49,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\booked.png" />
+	  <None Remove="Resources\Images\holiday.png" />
 	  <None Remove="Resources\Images\logo.png" />
 	</ItemGroup>
 
@@ -58,10 +60,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\PropertyListingPage.xaml.cs">
+	    <DependentUpon>PropertyListingPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\PropertyListingForm.xaml">
+	  <MauiXaml Update="Views\PropertyListingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PropertyManagementPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -74,5 +74,13 @@ namespace FreshApp
             var result = JsonConvert.DeserializeObject<List<Item>>(res);
             return result;
         }
+
+        public async Task<List<ItemPrice>> GetItemPrices(long ItemId)
+        {
+            var url = this.Url + $"GetItemPrices?ItemId={ItemId}";
+            var res = await client.GetStringAsync(url);
+            var result = JsonConvert.DeserializeObject<List<ItemPrice>>(res);
+            return result;
+        }
     }
 }

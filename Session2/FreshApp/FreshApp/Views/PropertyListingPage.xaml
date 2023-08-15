@@ -4,7 +4,7 @@
              xmlns:models="clr-namespace:FreshApp.Models"
              x:Class="FreshApp.Views.PropertyListingForm"
              Title="Your Listings:">
-    <StackLayout>
+    <StackLayout Margin="5">
         <ListView x:Name="ItemListView" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="models:Item">
@@ -17,18 +17,18 @@
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="Last date of pricing: "/>
-                                            <Span Text="{Binding Date}" TextColor="Red"/>
+                                            <Span Text="{Binding Date}" TextColor="#e51a2e"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                             </StackLayout>
-                            <Button Grid.Column="2" Text="$" FontSize="10" WidthRequest="40" HeightRequest="40" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked_1" CornerRadius="50"/>
+                            <Button Grid.Column="2" Text="$" FontSize="10" WidthRequest="40" HeightRequest="40" HorizontalOptions="CenterAndExpand" Clicked="Button_Clicked_1" CornerRadius="50" CommandParameter="{Binding .}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Text="↪️" HeightRequest="60" WidthRequest="60" CornerRadius="50" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked"/>
+        <Button Text="↪️" HeightRequest="60" WidthRequest="60" CornerRadius="50" VerticalOptions="End" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked"/>
     </StackLayout>
 </ContentPage>
