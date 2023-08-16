@@ -11,10 +11,9 @@
                     <DataTemplate x:DataType="models:ItemPrice">
                         <ViewCell>
                             <SwipeView>
-
                                 <SwipeView.LeftItems>
                                     <SwipeItems Mode="Execute">
-                                        <SwipeItem/>
+                                        <SwipeItem Command="{Binding Path=BindingContext.DeleteItemPriceSwipeCommand, Source={x:Reference Name=ItemPriceListView}}" CommandParameter="{Binding .}"/>
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
 
@@ -25,7 +24,7 @@
                                 </SwipeView.RightItems>
 
                                 <Grid ColumnDefinitions="*, 2*, *, 3*" RowDefinitions="30">
-                                    <Image Source="{Binding Status}" HeightRequest="20"/>
+                                    <Image Source="{Binding Status}" HeightRequest="20" WidthRequest="20"/>
                                     <Label Text="{Binding Date}" Grid.Column="1"/>
                                     <Label Grid.Column="2">
                                         <Label.FormattedText>

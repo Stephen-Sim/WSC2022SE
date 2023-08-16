@@ -70,5 +70,25 @@ namespace FreshApi.Controllers
 
             return Ok(itemPrices);
         }
+
+        [HttpGet]
+        public object DeleteItemPrice(long Id)
+        {
+            ent.ItemPrices.Remove(ent.ItemPrices.FirstOrDefault(x => x.ID == Id));
+            ent.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public object EditItemPrice(dynamic ItemPrice)
+        {
+            var ip = ent.ItemPrices.ToList().FirstOrDefault(x => x.ID == ItemPrice.ID);
+            ip.Price = ItemPrice.Price;
+            ip.CancellationPolicyID = ItemPrice.CancellationPolicyID;
+            ent.SaveChanges();
+
+            return Ok();
+        }
     }
 }
