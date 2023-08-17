@@ -11,17 +11,17 @@
                     <DataTemplate x:DataType="models:ItemPrice">
                         <ViewCell>
                             <SwipeView>
-                                <SwipeView.LeftItems>
+                                <SwipeView.RightItems>
                                     <SwipeItems Mode="Execute">
                                         <SwipeItem Command="{Binding Path=BindingContext.DeleteItemPriceSwipeCommand, Source={x:Reference Name=ItemPriceListView}}" CommandParameter="{Binding .}"/>
                                     </SwipeItems>
-                                </SwipeView.LeftItems>
-
-                                <SwipeView.RightItems>
-                                    <SwipeItems Mode="Execute">
-                                        <SwipeItem/>
-                                    </SwipeItems>
                                 </SwipeView.RightItems>
+
+                                <SwipeView.LeftItems>
+                                    <SwipeItems Mode="Execute">
+                                        <SwipeItem Command="{Binding Path=BindingContext.EditItemPriceSwipeCommand, Source={x:Reference Name=ItemPriceListView}}" CommandParameter="{Binding .}"/>
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
 
                                 <Grid ColumnDefinitions="*, 2*, *, 3*" RowDefinitions="30">
                                     <Image Source="{Binding Status}" HeightRequest="20" WidthRequest="20"/>
@@ -54,7 +54,7 @@
         <Label Text="Lisitng pricing" Margin="5"/>
         <Frame HeightRequest="330" Padding="10" BackgroundColor="Transparent" BorderColor="LightGray">
             <StackLayout>
-                <StackLayout>
+                <StackLayout x:Name="AddItemPriceStackLayout">
                     <Grid RowDefinitions="40, 50" ColumnDefinitions="*, *">
                         <Label Text="From:"/>
                         <Label Text="To:" Grid.Column="1"/>
@@ -65,18 +65,31 @@
 
                     <Grid RowDefinitions="60, 60, 60, 60" ColumnDefinitions="2.2*, 1.5*, 3*">
                         <Label Text="On the weekend:"/>
-                        <Entry Grid.Column="1" Keyboard="Numeric"/>
-                        <Picker Grid.Column="2" Title="Select the rule"/>
+                        <Entry x:Name="WeekEndEntry" Grid.Column="1" Keyboard="Numeric"/>
+                        <Picker x:Name="WeekEndPicker" Grid.Column="2" Title="Select the rule"/>
 
                         <Label Grid.Row="1" Text="On the holidays:"/>
-                        <Entry Grid.Row="1" Grid.Column="1" Keyboard="Numeric"/>
-                        <Picker Grid.Row="1" Grid.Column="2" Title="Select the rule"/>
+                        <Entry x:Name="HolidayEntry" Grid.Row="1" Grid.Column="1" Keyboard="Numeric"/>
+                        <Picker x:Name="HolidayPicker" Grid.Row="1" Grid.Column="2" Title="Select the rule"/>
 
-                        <Label Grid.Row="2" Text="On the days:"/>
-                        <Entry Grid.Row="2" Grid.Column="1" Keyboard="Numeric"/>
-                        <Picker Grid.Row="2" Grid.Column="2" Title="Select the rule"/>
+                        <Label Grid.Row="2" Text="Other days:"/>
+                        <Entry x:Name="OtherEntry" Grid.Row="2" Grid.Column="1" Keyboard="Numeric"/>
+                        <Picker x:Name="OtherPicker" Grid.Row="2" Grid.Column="2" Title="Select the rule"/>
 
                         <Button Grid.Row="3" Grid.Column="2" Text="Set price" VerticalOptions="Start"/>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout x:Name="EditItemPriceStackLayout">
+                    <Grid RowDefinitions="120, 120" ColumnDefinitions="2.2*, 1.5*, 3*">
+                        <Label x:Name="SelectedItemPriceLabel" Text="On the weekend:"/>
+                        <Entry x:Name="SelectedItemPriceEntry" Grid.Column="1" Keyboard="Numeric"/>
+                        <Picker x:Name="SelectedItemPricePicker" Grid.Column="2" Title="Select the rule"/>
+
+                        <StackLayout Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                            <Button Text="Set price" WidthRequest="100" HeightRequest="60" Margin="5" Clicked="Button_Clicked_2"/>
+                            <Button Text="Cancel" Clicked="Button_Clicked_1" WidthRequest="100" HeightRequest="60" Margin="5"/>
+                        </StackLayout>
                     </Grid>
                 </StackLayout>
             </StackLayout>

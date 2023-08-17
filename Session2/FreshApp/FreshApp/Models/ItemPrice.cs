@@ -12,6 +12,7 @@ namespace FreshApp.Models
         public string Date { get; set; }
         public double Price { get; set; }
         public string CancellationPolicy { get; set; }
+        public long CancellationPolicyID { get; set; }
         public string Status { get; set; }
     }
 }

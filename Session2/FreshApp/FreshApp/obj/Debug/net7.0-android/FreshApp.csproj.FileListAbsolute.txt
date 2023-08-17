@@ -1934,6 +1934,8 @@ C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-and
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\resizetizer\r\drawable\booked.png
+C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\resizetizer\r\drawable\holiday.png
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\mscorlib.dll
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\System.Collections.Concurrent.dll
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\System.Data.Common.dll
@@ -1947,5 +1949,3 @@ C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-and
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\System.Runtime.Extensions.dll
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\System.Runtime.Serialization.Formatters.dll
 C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\System.Xml.dll
-C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\resizetizer\r\drawable\booked.png
-C:\Users\simsh\Desktop\WSC2022SE\Session2\FreshApp\FreshApp\obj\Debug\net7.0-android\resizetizer\r\drawable\holiday.png

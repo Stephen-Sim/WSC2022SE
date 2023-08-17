@@ -96,5 +96,30 @@ namespace FreshApp
 
             return false;
         }
+
+        public async Task<List<CancellationPolicy>> GetCancellationPolicies()
+        {
+            var url = this.Url + $"GetCancellationPolicies";
+            var res = await client.GetStringAsync(url);
+            var result = JsonConvert.DeserializeObject<List<CancellationPolicy>>(res);
+            return result;
+        }
+
+        public async Task<bool> EditItemPrice(object obj)
+        {
+            var url = this.Url + $"EditItemPrice";
+
+            var json = JsonConvert.SerializeObject(obj);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var res = await client.PostAsync(url, content);
+
+            if (res.IsSuccessStatusCode)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

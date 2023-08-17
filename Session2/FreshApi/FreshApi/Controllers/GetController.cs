@@ -52,6 +52,7 @@ namespace FreshApi.Controllers
                 Date = x.Date.ToString("yyyy/MM/dd"),
                 CancellationPolicy = x.CancellationPolicy.Name,
                 x.Price,
+                x.CancellationPolicyID,
                 Status = new Func<string>(() =>
                 {
                     if (x.BookingDetails.Any())
@@ -72,6 +73,18 @@ namespace FreshApi.Controllers
         }
 
         [HttpGet]
+        public object GetCancellationPolicies()
+        {
+            var policies = ent.CancellationPolicies.ToList().Select(x => new
+            {
+                x.ID,
+                x.Name,
+            });
+
+            return Ok(policies);
+        }
+
+        [HttpGet]
         public object DeleteItemPrice(long Id)
         {
             ent.ItemPrices.Remove(ent.ItemPrices.FirstOrDefault(x => x.ID == Id));
@@ -83,9 +96,9 @@ namespace FreshApi.Controllers
         [HttpPost]
         public object EditItemPrice(dynamic ItemPrice)
         {
-            var ip = ent.ItemPrices.ToList().FirstOrDefault(x => x.ID == ItemPrice.ID);
-            ip.Price = ItemPrice.Price;
-            ip.CancellationPolicyID = ItemPrice.CancellationPolicyID;
+            var ip = ent.ItemPrices.ToList().FirstOrDefault(x => x.ID == (long)ItemPrice.ID);
+            ip.Price = (decimal)ItemPrice.Price;
+            ip.CancellationPolicyID = (long)ItemPrice.CancellationPolicyID;
             ent.SaveChanges();
 
             return Ok();
