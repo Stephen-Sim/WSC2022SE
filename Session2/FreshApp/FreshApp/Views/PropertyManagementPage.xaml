@@ -5,7 +5,7 @@
              x:Class="FreshApp.Views.PropertyManagementPage"
              NavigationPage.HasBackButton="False">
     <StackLayout Margin="5">
-        <Frame HeightRequest="280" Padding="5" BackgroundColor="Transparent" BorderColor="LightGray">
+        <Frame HeightRequest="450" Padding="5" BackgroundColor="Transparent" BorderColor="LightGray">
             <ListView x:Name="ItemPriceListView" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models:ItemPrice">
@@ -23,7 +23,7 @@
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
 
-                                <Grid ColumnDefinitions="*, 2*, *, 3*" RowDefinitions="30">
+                                <Grid ColumnDefinitions="*, 2*, *, 3*" RowDefinitions="50">
                                     <Image Source="{Binding Status}" HeightRequest="20" WidthRequest="20"/>
                                     <Label Text="{Binding Date}" Grid.Column="1"/>
                                     <Label Grid.Column="2">
@@ -52,18 +52,18 @@
         </Frame>
 
         <Label Text="Lisitng pricing" Margin="5"/>
-        <Frame HeightRequest="330" Padding="10" BackgroundColor="Transparent" BorderColor="LightGray">
+        <Frame HeightRequest="450" Padding="10" BackgroundColor="Transparent" BorderColor="LightGray">
             <StackLayout>
                 <StackLayout x:Name="AddItemPriceStackLayout">
                     <Grid RowDefinitions="40, 50" ColumnDefinitions="*, *">
                         <Label Text="From:"/>
                         <Label Text="To:" Grid.Column="1"/>
 
-                        <DatePicker Grid.Row="1"/>
-                        <DatePicker Grid.Row="1" Grid.Column="1"/>
+                        <DatePicker x:Name="StartDatePicker" Grid.Row="1"/>
+                        <DatePicker x:Name="EndDatePicker" Grid.Row="1" Grid.Column="1"/>
                     </Grid>
 
-                    <Grid RowDefinitions="60, 60, 60, 60" ColumnDefinitions="2.2*, 1.5*, 3*">
+                    <Grid RowDefinitions="80, 80, 80, 80" ColumnDefinitions="2.2*, 1.5*, 3*">
                         <Label Text="On the weekend:"/>
                         <Entry x:Name="WeekEndEntry" Grid.Column="1" Keyboard="Numeric"/>
                         <Picker x:Name="WeekEndPicker" Grid.Column="2" Title="Select the rule"/>
@@ -76,7 +76,7 @@
                         <Entry x:Name="OtherEntry" Grid.Row="2" Grid.Column="1" Keyboard="Numeric"/>
                         <Picker x:Name="OtherPicker" Grid.Row="2" Grid.Column="2" Title="Select the rule"/>
 
-                        <Button Grid.Row="3" Grid.Column="2" Text="Set price" VerticalOptions="Start"/>
+                        <Button Grid.Row="3" Grid.Column="2" Text="Set price" VerticalOptions="Start" Clicked="Button_Clicked_3"/>
                     </Grid>
                 </StackLayout>
 

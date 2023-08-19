@@ -67,7 +67,7 @@ namespace FreshApi.Controllers
 
                     return "";
                 })()
-            }).ToList();
+            }).OrderBy(x => x.Date).ToList();
 
             return Ok(itemPrices);
         }
@@ -102,6 +102,72 @@ namespace FreshApi.Controllers
             ent.SaveChanges();
 
             return Ok();
+        }
+
+        [HttpPost]
+        public object AddItemPriceListing(AddItemPriceListingRequest addItemPrice)
+        {
+            try
+            {
+                var temp = ent.ItemPrices.ToList().Where(x => x.ItemID == addItemPrice.ItemId && x.Date.Date >= addItemPrice.StartDate.Date && x.Date.Date <= addItemPrice.EndDate.Date && x.BookingDetails.Count() == 0).ToList();
+                ent.ItemPrices.RemoveRange(temp);
+
+                for (var i = addItemPrice.StartDate; i <= addItemPrice.EndDate; i = i.AddDays(1))
+                {
+                    if (ent.ItemPrices.ToList().Any(x => x.Date.Date == i.Date && x.BookingDetails.Any()))
+                    {
+                        continue;
+                    }
+
+                    var date = ent.DimDates.ToList().FirstOrDefault(x => x.Date.Date == i.Date);
+
+                    ItemPrice itemPrice = new ItemPrice { 
+                        ItemID = addItemPrice.ItemId,
+                        GUID = Guid.NewGuid(),
+                        Date = i.Date
+                    };
+
+                    if (date.isHoliday)
+                    {
+                        itemPrice.Price = addItemPrice.HilodayPrice;
+                        itemPrice.CancellationPolicyID = addItemPrice.HilodayPolicyId;
+                    }
+                    else if (date.DayOfWeek == 1 || date.DayOfWeek == 7)
+                    {
+                        itemPrice.Price = addItemPrice.WeekendPrice;
+                        itemPrice.CancellationPolicyID = addItemPrice.WeekendPolicyId;
+                    }
+                    else
+                    {
+                        itemPrice.Price = addItemPrice.OtherdayPrice;
+                        itemPrice.CancellationPolicyID = addItemPrice.OtherdayPolicyId;
+                    }
+
+                    ent.ItemPrices.Add(itemPrice);
+                }
+
+                ent.SaveChanges();
+
+                return Ok();
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.Message);
+                return BadRequest();
+            }
+        }
+
+        public class AddItemPriceListingRequest
+        {
+            public long ItemId { get; set; }
+            public DateTime StartDate { get; set; }
+            public DateTime EndDate { get; set; }
+            public decimal WeekendPrice { get; set; }
+            public long WeekendPolicyId { get; set; }
+            public decimal HilodayPrice { get; set; }
+            public long HilodayPolicyId { get; set; }
+            public decimal OtherdayPrice { get; set; }
+            public long OtherdayPolicyId { get; set; }
         }
     }
 }

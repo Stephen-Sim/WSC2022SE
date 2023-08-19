@@ -135,6 +135,81 @@ public partial class PropertyManagementPage : ContentPage
         if (res)
         {
             await DisplayAlert("", "item price edited", "ok");
+            
+            WeekEndPicker.SelectedIndex = -1;
+            HolidayPicker.SelectedIndex = -1;
+            OtherPicker.SelectedIndex = -1;
+
+            WeekEndEntry.Text = string.Empty;
+            HolidayEntry.Text = string.Empty;
+            OtherEntry.Text = string.Empty;
+
+            AddItemPriceStackLayout.IsVisible = true;
+            EditItemPriceStackLayout.IsVisible = false;
+
+            loadItemPrices();
+        }
+    }
+
+    private async void Button_Clicked_3(object sender, EventArgs e)
+    {
+        if (StartDatePicker.Date > EndDatePicker.Date)
+        {
+            await DisplayAlert("", "start date could not bigger than end date.", "ok");
+            return;
+        }
+
+        if (StartDatePicker.Date <= DateTime.Today || EndDatePicker.Date <= DateTime.Today)
+        {
+            await DisplayAlert("", "date could not before current date.", "ok");
+            return;
+        }
+
+        if (StartDatePicker.Date > DateTime.Today.AddDays(90) || EndDatePicker.Date > DateTime.Today.AddDays(90))
+        {
+            await DisplayAlert("", "date could not after 90 days of current date", "ok");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(OtherEntry.Text) || WeekEndPicker.SelectedIndex == -1 || HolidayPicker.SelectedIndex == -1 || OtherPicker.SelectedIndex == -1)
+        {
+            await DisplayAlert("", "all the fields are required", "ok");
+            return;
+        }
+
+        if (decimal.Parse(OtherEntry.Text) <= 0 || (!string.IsNullOrEmpty(WeekEndEntry.Text) && decimal.Parse(WeekEndEntry.Text) <= 0) 
+            || (!string.IsNullOrEmpty(HolidayEntry.Text) && decimal.Parse(HolidayEntry.Text) <= 0))
+        {
+            await DisplayAlert("", "price could not be less than or equal to 0 value.", "ok");
+            return;
+        }
+
+        var itemPrice = new AddItemPriceListingRequest()
+        {
+            ItemId = this.Item.ID,
+            StartDate = StartDatePicker.Date,
+            EndDate = EndDatePicker.Date,
+            WeekendPrice = !string.IsNullOrEmpty(WeekEndEntry.Text) ? decimal.Parse(WeekEndEntry.Text): decimal.Parse(OtherEntry.Text), 
+            WeekendPolicyId = ((CancellationPolicy)WeekEndPicker.SelectedItem).ID,
+            HilodayPrice = !string.IsNullOrEmpty(HolidayEntry.Text) ? decimal.Parse(HolidayEntry.Text) : decimal.Parse(OtherEntry.Text),
+            HilodayPolicyId = ((CancellationPolicy)HolidayPicker.SelectedItem).ID,
+            OtherdayPrice = decimal.Parse(OtherEntry.Text),
+            OtherdayPolicyId = ((CancellationPolicy)OtherPicker.SelectedItem).ID
+        };
+
+        var res = await ApiService.AddItemPriceListing(itemPrice);
+
+        if (res)
+        {
+            await DisplayAlert("", "item price is stored", "Ok");
+            WeekEndPicker.SelectedIndex = -1;
+            HolidayPicker.SelectedIndex = -1;
+            OtherPicker.SelectedIndex = -1;
+
+            WeekEndEntry.Text = string.Empty;
+            HolidayEntry.Text = string.Empty;
+            OtherEntry.Text = string.Empty;
+
             loadItemPrices();
         }
     }

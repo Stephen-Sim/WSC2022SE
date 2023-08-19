@@ -121,5 +121,24 @@ namespace FreshApp
 
             return false;
         }
+
+        public async Task<bool> AddItemPriceListing(AddItemPriceListingRequest itemPrices)
+        {
+            try
+            {
+                var url = this.Url + $"AddItemPriceListing";
+
+                var json = JsonConvert.SerializeObject(itemPrices);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var res = await client.PostAsync(url, content);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
