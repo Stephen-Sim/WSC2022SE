@@ -29,6 +29,25 @@ namespace FreshDesktop
                 string column1Value = selectedItem.SubItems[0].Text;
                 string column2Value = selectedItem.SubItems[1].Text;
 
+                switch (column2Value)
+                {
+                    case "Area":
+                        criteriaTypeId = 1;
+                        break;
+                    case "Attraction":
+                        criteriaTypeId = 2;
+                        break;
+                    case "Listing":
+                        criteriaTypeId = 3;
+                        break;
+                    case "Property Type":
+                        criteriaTypeId = 4;
+                        break;
+                    case "Amenity":
+                        criteriaTypeId = 5;
+                        break;
+                }
+
                 textBox1.Text = column1Value;
 
                 listView1.Visible = false;
@@ -38,7 +57,7 @@ namespace FreshDesktop
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBox1.Text))
+            if (textBox1.Text.Length >= 3)
             {
                 listView1.Items.Clear();
 
@@ -93,6 +112,69 @@ namespace FreshDesktop
             {
                 listView1.Visible = false;
             }
+        }
+
+        int criteriaTypeId = 0;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*if (dateTimePicker1.Value.Date > DateTime.Today.Date)
+            {
+                MessageBox.Show("date of start reservation could be before the current date.");
+                return;
+            }*/
+
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                MessageBox.Show("input field cannot be null");
+                return;
+            }
+
+            this.Size = new Size(802, 587);
+
+            dataGridView1.Rows.Clear();
+
+            var itemPrices = ent.ItemPrices.ToList().Where(x => x.Date.Date == dateTimePicker1.Value.Date &&
+            x.Item.Capacity >= numericUpDown2.Value &&
+            x.Item.MinimumNights >= numericUpDown1.Value).ToList();
+
+            if (criteriaTypeId == 1)
+            {
+                itemPrices = itemPrices.Where(x => x.Item.Area.Name == textBox1.Text).ToList();
+            }
+            else if (criteriaTypeId == 2)
+            {
+                itemPrices = itemPrices.Where(x => x.Item.ItemAttractions.Any(y => y.Attraction.Name == textBox1.Text)).ToList();
+            }
+            else if (criteriaTypeId == 3)
+            {
+                itemPrices = itemPrices.Where(x => x.Item.Title == textBox1.Text).ToList();
+            }
+            else if (criteriaTypeId == 4)
+            {
+                itemPrices = itemPrices.Where(x => x.Item.ItemType.Name == textBox1.Text).ToList();
+            }
+            else if (criteriaTypeId == 5)
+            {
+                itemPrices = itemPrices.Where(x => x.Item.ItemAmenities.Any(y => y.Amenity.Name == textBox1.Text)).ToList();
+            }
+
+            foreach (var itemPrice in itemPrices)
+            {
+                var item = itemPrice.Item;
+                dataGridView1.Rows.Add(item.Title, item.Area.Name, new Func<string>(() =>
+                {
+                    if (item.ItemScores == null)
+                    {
+                        return string.Empty;
+                    }
+
+                    return item.ItemScores.Average(x => x.Value).ToString();
+
+                })(), ent.BookingDetails.Where(x => x.ItemPrice.ItemID == item.ID).Count(), itemPrice.Price + "$");
+            }
+
+            label5.Text = $"Displaying {itemPrices.Count} options";
         }
     }
 }
