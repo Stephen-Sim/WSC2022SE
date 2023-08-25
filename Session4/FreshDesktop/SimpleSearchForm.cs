@@ -11,10 +11,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FreshDesktop
 {
-    public partial class Form1 : FreshDesktop.Core
+    public partial class SimpleSearchForm : FreshDesktop.Core
     {
         WSC2022SE_Session4Entities ent;
-        public Form1()
+        public SimpleSearchForm()
         {
             InitializeComponent();
 
@@ -175,6 +175,14 @@ namespace FreshDesktop
             }
 
             label5.Text = $"Displaying {itemPrices.Count} options";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            var form = new AdvancedSearchForm();
+            form.ShowDialog();
         }
     }
 }

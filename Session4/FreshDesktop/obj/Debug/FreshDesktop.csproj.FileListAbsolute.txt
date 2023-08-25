@@ -15,7 +15,6 @@ C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\bin\Debug\FreshDesktop.ex
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\bin\Debug\FreshDesktop.pdb
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.csproj.AssemblyReference.cache
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.Core.resources
-C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.Form1.resources
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.Properties.Resources.resources
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.csproj.GenerateResource.cache
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.csproj.CoreCompileInputs.cache
@@ -26,3 +25,5 @@ C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\bin\Debug\EntityFramework
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\bin\Debug\EntityFramework.xml
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.csproj.CopyComplete
+C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.AdvancedSearchForm.resources
+C:\Users\simsh\Desktop\WSC2022SE\Session4\FreshDesktop\obj\Debug\FreshDesktop.SimpleSearchForm.resources

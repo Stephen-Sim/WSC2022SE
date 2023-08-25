@@ -1,6 +1,6 @@
 ﻿namespace FreshDesktop
 {
-    partial class Form1
+    partial class SimpleSearchForm
     {
         /// <summary>
         /// Required designer variable.
@@ -201,6 +201,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Advanced Search";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -291,11 +292,11 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "label5";
             // 
-            // Form1
+            // SimpleSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(786, 156);
-            this.Name = "Form1";
+            this.Name = "SimpleSearchForm";
             this.Text = "Seoul Stay - Search Properties or Listings";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
