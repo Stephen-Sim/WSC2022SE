@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -37,8 +38,12 @@
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.amenitiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.wSC2022SESession4DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.wSC2022SE_Session4DataSet = new FreshDesktop.WSC2022SE_Session4DataSet();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.itemTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
@@ -54,10 +59,13 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.attractionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.areasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -68,12 +76,24 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
+            this.areasTableAdapter = new FreshDesktop.WSC2022SE_Session4DataSetTableAdapters.AreasTableAdapter();
+            this.attractionsTableAdapter = new FreshDesktop.WSC2022SE_Session4DataSetTableAdapters.AttractionsTableAdapter();
+            this.amenitiesTableAdapter = new FreshDesktop.WSC2022SE_Session4DataSetTableAdapters.AmenitiesTableAdapter();
+            this.itemTypesTableAdapter = new FreshDesktop.WSC2022SE_Session4DataSetTableAdapters.ItemTypesTableAdapter();
+            this.itemsTableAdapter = new FreshDesktop.WSC2022SE_Session4DataSetTableAdapters.ItemsTableAdapter();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.amenitiesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wSC2022SESession4DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wSC2022SE_Session4DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemTypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attractionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -84,7 +104,7 @@
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Size = new System.Drawing.Size(800, 263);
+            this.panel1.Size = new System.Drawing.Size(800, 260);
             // 
             // groupBox1
             // 
@@ -137,7 +157,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(494, 203);
+            this.button2.Location = new System.Drawing.Point(502, 203);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 30);
             this.button2.TabIndex = 28;
@@ -147,7 +167,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(359, 203);
+            this.button1.Location = new System.Drawing.Point(368, 203);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 30);
             this.button1.TabIndex = 27;
@@ -157,6 +177,7 @@
             // 
             // comboBox7
             // 
+            this.comboBox7.Enabled = false;
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Location = new System.Drawing.Point(578, 164);
             this.comboBox7.Name = "comboBox7";
@@ -166,7 +187,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(519, 167);
+            this.label14.Location = new System.Drawing.Point(513, 167);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(53, 15);
             this.label14.TabIndex = 25;
@@ -174,16 +195,18 @@
             // 
             // comboBox6
             // 
+            this.comboBox6.Enabled = false;
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(328, 164);
+            this.comboBox6.Location = new System.Drawing.Point(316, 164);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(164, 23);
             this.comboBox6.TabIndex = 24;
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(269, 167);
+            this.label13.Location = new System.Drawing.Point(257, 167);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(53, 15);
             this.label13.TabIndex = 23;
@@ -191,11 +214,30 @@
             // 
             // comboBox5
             // 
+            this.comboBox5.DataSource = this.amenitiesBindingSource;
+            this.comboBox5.DisplayMember = "Name";
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(70, 164);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(164, 23);
             this.comboBox5.TabIndex = 22;
+            this.comboBox5.ValueMember = "ID";
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // amenitiesBindingSource
+            // 
+            this.amenitiesBindingSource.DataMember = "Amenities";
+            this.amenitiesBindingSource.DataSource = this.wSC2022SESession4DataSetBindingSource;
+            // 
+            // wSC2022SESession4DataSetBindingSource
+            // 
+            this.wSC2022SESession4DataSetBindingSource.DataSource = this.wSC2022SE_Session4DataSet;
+            this.wSC2022SESession4DataSetBindingSource.Position = 0;
+            // 
+            // wSC2022SE_Session4DataSet
+            // 
+            this.wSC2022SE_Session4DataSet.DataSetName = "WSC2022SE_Session4DataSet";
+            this.wSC2022SE_Session4DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label12
             // 
@@ -208,11 +250,19 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.DataSource = this.itemTypesBindingSource;
+            this.comboBox4.DisplayMember = "Name";
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(578, 121);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(164, 23);
             this.comboBox4.TabIndex = 20;
+            this.comboBox4.ValueMember = "ID";
+            // 
+            // itemTypesBindingSource
+            // 
+            this.itemTypesBindingSource.DataMember = "ItemTypes";
+            this.itemTypesBindingSource.DataSource = this.wSC2022SESession4DataSetBindingSource;
             // 
             // label11
             // 
@@ -226,6 +276,11 @@
             // numericUpDown4
             // 
             this.numericUpDown4.Location = new System.Drawing.Point(342, 122);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(120, 21);
             this.numericUpDown4.TabIndex = 18;
@@ -283,9 +338,24 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(432, 72);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(60, 21);
             this.numericUpDown1.TabIndex = 11;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label6
             // 
@@ -332,11 +402,19 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.DataSource = this.itemsBindingSource;
+            this.comboBox3.DisplayMember = "Title";
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(600, 25);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(164, 23);
             this.comboBox3.TabIndex = 5;
+            this.comboBox3.ValueMember = "ID";
+            // 
+            // itemsBindingSource
+            // 
+            this.itemsBindingSource.DataMember = "Items";
+            this.itemsBindingSource.DataSource = this.wSC2022SESession4DataSetBindingSource;
             // 
             // label3
             // 
@@ -349,11 +427,19 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.attractionsBindingSource;
+            this.comboBox2.DisplayMember = "Name";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(323, 25);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(164, 23);
             this.comboBox2.TabIndex = 3;
+            this.comboBox2.ValueMember = "ID";
+            // 
+            // attractionsBindingSource
+            // 
+            this.attractionsBindingSource.DataMember = "Attractions";
+            this.attractionsBindingSource.DataSource = this.wSC2022SESession4DataSetBindingSource;
             // 
             // label2
             // 
@@ -366,11 +452,19 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.areasBindingSource;
+            this.comboBox1.DisplayMember = "Name";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(64, 25);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(164, 23);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.ValueMember = "ID";
+            // 
+            // areasBindingSource
+            // 
+            this.areasBindingSource.DataMember = "Areas";
+            this.areasBindingSource.DataSource = this.wSC2022SESession4DataSetBindingSource;
             // 
             // label1
             // 
@@ -393,6 +487,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -403,6 +499,7 @@
             this.Column6});
             this.dataGridView1.Location = new System.Drawing.Point(14, 29);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(750, 278);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -451,20 +548,48 @@
             this.label15.TabIndex = 2;
             this.label15.Text = "label15";
             // 
+            // areasTableAdapter
+            // 
+            this.areasTableAdapter.ClearBeforeFill = true;
+            // 
+            // attractionsTableAdapter
+            // 
+            this.attractionsTableAdapter.ClearBeforeFill = true;
+            // 
+            // amenitiesTableAdapter
+            // 
+            this.amenitiesTableAdapter.ClearBeforeFill = true;
+            // 
+            // itemTypesTableAdapter
+            // 
+            this.itemTypesTableAdapter.ClearBeforeFill = true;
+            // 
+            // itemsTableAdapter
+            // 
+            this.itemsTableAdapter.ClearBeforeFill = true;
+            // 
             // AdvancedSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(800, 263);
+            this.ClientSize = new System.Drawing.Size(800, 260);
             this.Name = "AdvancedSearchForm";
             this.Text = "Seoul Stay - Search Properties or Listings (Advanced)";
+            this.Load += new System.EventHandler(this.AdvancedSearchForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.amenitiesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wSC2022SESession4DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.wSC2022SE_Session4DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemTypesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attractionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.areasBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -513,5 +638,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.BindingSource wSC2022SESession4DataSetBindingSource;
+        private WSC2022SE_Session4DataSet wSC2022SE_Session4DataSet;
+        private System.Windows.Forms.BindingSource areasBindingSource;
+        private WSC2022SE_Session4DataSetTableAdapters.AreasTableAdapter areasTableAdapter;
+        private System.Windows.Forms.BindingSource attractionsBindingSource;
+        private WSC2022SE_Session4DataSetTableAdapters.AttractionsTableAdapter attractionsTableAdapter;
+        private System.Windows.Forms.BindingSource amenitiesBindingSource;
+        private WSC2022SE_Session4DataSetTableAdapters.AmenitiesTableAdapter amenitiesTableAdapter;
+        private System.Windows.Forms.BindingSource itemTypesBindingSource;
+        private WSC2022SE_Session4DataSetTableAdapters.ItemTypesTableAdapter itemTypesTableAdapter;
+        private System.Windows.Forms.BindingSource itemsBindingSource;
+        private WSC2022SE_Session4DataSetTableAdapters.ItemsTableAdapter itemsTableAdapter;
     }
 }

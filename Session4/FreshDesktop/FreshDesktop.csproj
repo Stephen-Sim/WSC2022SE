@@ -153,6 +153,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WSC2022SE_Session4DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WSC2022SE_Session4DataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdvancedSearchForm.resx">
       <DependentUpon>AdvancedSearchForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +193,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WSC2022SE_Session4DataSet.xsc">
+      <DependentUpon>WSC2022SE_Session4DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="WSC2022SE_Session4DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WSC2022SE_Session4DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WSC2022SE_Session4DataSet.xss">
+      <DependentUpon>WSC2022SE_Session4DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
