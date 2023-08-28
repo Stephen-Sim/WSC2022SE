@@ -24478,11 +24478,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Fresh\\FreshMobile\\FreshApp\\FreshApp\\FreshApp.csproj",
+      "projectUniqueName": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Session5\\FreshApp\\FreshApp\\FreshApp.csproj",
       "projectName": "FreshApp",
-      "projectPath": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Fresh\\FreshMobile\\FreshApp\\FreshApp\\FreshApp.csproj",
+      "projectPath": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Session5\\FreshApp\\FreshApp\\FreshApp.csproj",
       "packagesPath": "C:\\Users\\simsh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Fresh\\FreshMobile\\FreshApp\\FreshApp\\obj\\",
+      "outputPath": "C:\\Users\\simsh\\Desktop\\WSC2022SE\\Session5\\FreshApp\\FreshApp\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

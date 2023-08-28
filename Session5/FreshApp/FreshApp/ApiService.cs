@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FreshApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace FreshApp
 {
     public class ApiService
     {
-        public string Url { get; set; } = "http://192.168.0.151:45457/api/get/";
+        public string Url { get; set; } = "http://192.168.0.151:45455/api/get/";
         public HttpClient client { get; set; }
 
         public ApiService()
@@ -24,6 +25,11 @@ namespace FreshApp
 
             if (res.IsSuccessStatusCode)
             {
+                var data = await res.Content.ReadAsStringAsync();
+                var user = JsonConvert.DeserializeObject<User>(data);
+                
+                App.User = user;
+
                 return true;
             }
 
@@ -60,6 +66,14 @@ namespace FreshApp
             }
 
             return false;
+        }
+
+        public async Task<List<ServiceType>> GetServiceTypes()
+        {
+            var url = this.Url + $"GetServiceTypes";
+            var res = await client.GetStringAsync(url);
+            var result = JsonConvert.DeserializeObject<List<ServiceType>>(res);
+            return result;
         }
     }
 }

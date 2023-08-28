@@ -12,6 +12,7 @@
         <Style TargetType="Button">
             <Setter Property="TextColor" Value="#bbbbbb"/>
             <Setter Property="BackgroundColor" Value="#333333"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
         </Style>
 
@@ -19,23 +20,27 @@
             <Setter Property="TextColor" Value="#bbbbbb"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
             <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
 
         <Style TargetType="Entry">
-            <Setter Property="BackgroundColor" Value="#bbbbbb"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
             <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
 
         <Style TargetType="Picker">
             <Setter Property="BackgroundColor" Value="#bbbbbb"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
 
         <Style TargetType="DatePicker">
             <Setter Property="BackgroundColor" Value="#bbbbbb"/>
             <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
         </Style>
     </Application.Resources>

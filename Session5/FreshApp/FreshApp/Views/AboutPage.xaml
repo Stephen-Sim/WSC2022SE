@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FreshApp.Views.AboutPage"
+             Title="Seoul Stay - About Us">
+    <StackLayout>
+        <StackLayout Margin="5" VerticalOptions="CenterAndExpand">
+            <Image Source="logo" HeightRequest="200"/>
+            <Label Text="Seoul Stay Addon Serives" HorizontalOptions="Center"/>
+            <Label Text="V.1.0" HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <Grid VerticalOptions="End" ColumnDefinitions="*, *, *" RowDefinitions="60">
+            <Frame BorderColor="Black" BackgroundColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Label Text="Services" HorizontalOptions="Center"/>
+            </Frame>
+            <Frame Grid.Column="1" BorderColor="Black" BackgroundColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                </Frame.GestureRecognizers>
+                <Label x:Name="CartCountLabel" HorizontalOptions="Center"/>
+            </Frame>
+            <Frame Grid.Column="2" BorderColor="Black" BackgroundColor="Gray">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                </Frame.GestureRecognizers>
+                <Label Text="About" HorizontalOptions="Center"/>
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>
