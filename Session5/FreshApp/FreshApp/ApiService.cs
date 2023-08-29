@@ -75,5 +75,111 @@ namespace FreshApp
             var result = JsonConvert.DeserializeObject<List<ServiceType>>(res);
             return result;
         }
+
+        public async Task<List<Service>> getServices(long id)
+        {
+            string url = this.Url + $"getServices?id={id}";
+
+            var res = await client.GetStringAsync(url);
+            var result = JsonConvert.DeserializeObject<List<Service>>(res);
+
+            return result;
+        }
+        public async Task<int> getPostByDate(long serviceId, DateTime date)
+        {
+            string url = this.Url + $"getPostByDate?serviceId={serviceId}&date={date}";
+
+            var res = await client.GetStringAsync(url);
+            var result = JsonConvert.DeserializeObject<int>(res);
+
+            return result;
+        }
+
+        public async Task<bool> storeAddonService(AddonServiceDetail addonServiceDetail)
+        {
+            string url = this.Url + $"storeAddonService";
+
+            var json = JsonConvert.SerializeObject(addonServiceDetail);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var res = await client.PostAsync(url, data);
+
+            if (res.IsSuccessStatusCode)
+            {
+                var result = await res.Content.ReadAsStringAsync();
+                var count = JsonConvert.DeserializeObject<int>(result);
+
+                App.User.CartCount = count;
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<List<AddonServiceDetail>> getAddonServiceDetails(long id)
+        {
+            string url = this.Url + $"getAddonServiceDetails?id={id}";
+
+            var res = await client.GetStringAsync(url);
+            var result = JsonConvert.DeserializeObject<List<AddonServiceDetail>>(res);
+
+            return result;
+        }
+
+        public async Task<bool> delAddonServiceDetail(long id)
+        {
+            string url = this.Url + $"delAddonServiceDetail?id={id}&addonServiceId={App.User.AddOnServiceId}";
+
+            var res = await client.GetAsync(url);
+
+            if (res.IsSuccessStatusCode)
+            {
+                var result = await res.Content.ReadAsStringAsync();
+                var count = JsonConvert.DeserializeObject<int>(result);
+
+                App.User.CartCount = count;
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<Coupon> checkCoupon(string code)
+        {
+            string url = this.Url + $"checkCoupon?code={code}";
+
+            var res = await client.GetAsync(url);
+
+            if (res.IsSuccessStatusCode)
+            {
+                var result = await res.Content.ReadAsStringAsync();
+                var coupon = JsonConvert.DeserializeObject<Coupon>(result);
+                return coupon;
+            }
+
+            return null;
+        }
+
+        public async Task<bool> proceedPayment(long addonSeriveId, long couponId)
+        {
+            string url = this.Url + $"proceedPayment?addonSeriveId={addonSeriveId}&couponId={couponId}";
+
+            var res = await client.GetAsync(url);
+
+            if (res.IsSuccessStatusCode)
+            {
+                var result = await res.Content.ReadAsStringAsync();
+                var user = JsonConvert.DeserializeObject<User>(result);
+
+                App.User = user;
+
+                return true;
+            }
+
+            return false;
+        }
     }
+}
 }
