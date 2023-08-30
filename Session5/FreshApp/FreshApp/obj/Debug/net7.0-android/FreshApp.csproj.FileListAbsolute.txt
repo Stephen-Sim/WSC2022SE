@@ -2415,7 +2415,6 @@ C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-and
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\Xamarin.Kotlin.StdLib.Jdk8.dll
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\Xamarin.KotlinX.Coroutines.Android.dll
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\assets\Xamarin.KotlinX.Coroutines.Core.Jvm.dll
-C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\typemaps.arm64-v8a.ll
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\AndroidManifest.xml
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\AndroidManifest.xml
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\__environment__.txt
@@ -2424,7 +2423,6 @@ C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-and
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\bin\mono.android.jar
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\static.flag
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\buildid.txt
-C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\environment.arm64-v8a.ll
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\src\androidx\activity\ktx\R.java
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\src\androidx\activity\R.java
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\src\androidx\annotation\experimental\R.java
@@ -2904,12 +2902,6 @@ C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-and
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\src\mono\MonoPackageManager_Resources.java
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\bin\packaged_resources
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\src\com\companyname\freshapp\R.java
-C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\compressed_assemblies.arm64-v8a.ll
-C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\typemaps.arm64-v8a.o
-C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\environment.arm64-v8a.o
-C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\compressed_assemblies.arm64-v8a.o
-C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\jni_remap.arm64-v8a.o
-C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\app_shared_libraries\arm64-v8a\libxamarin-app.so
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\bin\classes.dex
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\bin\classes2.dex
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\stamp\_CleanIntermediateIfNeeded.stamp
@@ -2938,3 +2930,11 @@ C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-and
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\resizetizer\r\drawable\volumehigh.png
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\resizetizer\r\drawable\wrench.png
 C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\resizetizer\r\drawable\logo.png
+C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\typemaps.arm64-v8a.ll
+C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\environment.arm64-v8a.ll
+C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\compressed_assemblies.arm64-v8a.ll
+C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\typemaps.arm64-v8a.o
+C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\environment.arm64-v8a.o
+C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\compressed_assemblies.arm64-v8a.o
+C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\android\jni_remap.arm64-v8a.o
+C:\Users\simsh\Desktop\WSC2022SE\Session5\FreshApp\FreshApp\obj\Debug\net7.0-android\app_shared_libraries\arm64-v8a\libxamarin-app.so

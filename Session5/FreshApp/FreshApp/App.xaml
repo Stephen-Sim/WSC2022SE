@@ -14,6 +14,7 @@
             <Setter Property="BackgroundColor" Value="#333333"/>
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
+            <Setter Property="Margin" Value="5"/>
         </Style>
 
         <Style TargetType="Label">
@@ -31,14 +32,14 @@
         </Style>
 
         <Style TargetType="Picker">
-            <Setter Property="BackgroundColor" Value="#bbbbbb"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
             <Setter Property="FontFamily" Value="OpenSans"/>
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="VerticalOptions" Value="Center"/>
         </Style>
 
         <Style TargetType="DatePicker">
-            <Setter Property="BackgroundColor" Value="#bbbbbb"/>
+            <Setter Property="BackgroundColor" Value="Transparent"/>
             <Setter Property="VerticalOptions" Value="Center"/>
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontFamily" Value="OpenSans"/>

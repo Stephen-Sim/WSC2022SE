@@ -1,11 +1,69 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:FreshApp.Models"
              x:Class="FreshApp.Views.ShoppingCartPage"
              Title="Seoul Stay - Cart Checkout">
     <StackLayout>
         <StackLayout Margin="5" VerticalOptions="StartAndExpand">
-            
+            <Frame HeightRequest="500" BackgroundColor="Transparent" BorderColor="Black">
+
+                <ListView x:Name="CartListView" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:AddonServiceDetail">
+                            <ViewCell>
+                                <Grid RowDefinitions="30, 30, 30" ColumnDefinitions="60, *, 60">
+                                    <Image Grid.RowSpan="3" Source="{Binding IconName}" WidthRequest="50" HorizontalOptions="CenterAndExpand"/>
+                                    <Label Grid.Column="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding ServiceName}"/>
+                                                <Span Text=" $"/>
+                                                <Span Text="{Binding Price}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Grid.Column="1" Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="From: "/>
+                                                <Span Text="{Binding FromDateString}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Grid.Column="1" Grid.Row="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Number of People: "/>
+                                                <Span Text="{Binding NumberOfPeople}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Button Grid.Column="2" Grid.RowSpan="3" HeightRequest="50" WidthRequest="50" Text="🗑️" CornerRadius="50" Clicked="Button_Clicked" CommandParameter="{Binding ID}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Frame>
+
+            <Grid VerticalOptions="CenterAndExpand" ColumnDefinitions="*, 2*, 1.5*"  RowDefinitions="60, 40, 60, 70">
+                <Label Text="Enter Coupon code:" VerticalOptions="Center"/>
+
+                <Entry x:Name="CouponEntry" Grid.Column="1"/>
+
+                <Button Text="Submit" Grid.Column="2" Clicked="Button_Clicked_1"/>
+
+                <Label x:Name="IsSucceedAppliedLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                <Label x:Name="PayAmountLabel" Grid.Row="2" Grid.ColumnSpan="3" Text="Total amount Payable (3 Items) : $180.00"/>
+
+                <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="End" Text="Proceed to checkout" WidthRequest="220" Clicked="Button_Clicked_2"/>
+            </Grid>
         </StackLayout>
 
         <Grid VerticalOptions="End" ColumnDefinitions="*, *, *" RowDefinitions="60">

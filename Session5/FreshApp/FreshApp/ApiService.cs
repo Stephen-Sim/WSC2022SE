@@ -107,10 +107,7 @@ namespace FreshApp
             if (res.IsSuccessStatusCode)
             {
                 var result = await res.Content.ReadAsStringAsync();
-                var count = JsonConvert.DeserializeObject<int>(result);
-
-                App.User.CartCount = count;
-
+                App.User = JsonConvert.DeserializeObject<User>(result);
                 return true;
             }
 
@@ -129,17 +126,14 @@ namespace FreshApp
 
         public async Task<bool> delAddonServiceDetail(long id)
         {
-            string url = this.Url + $"delAddonServiceDetail?id={id}&addonServiceId={App.User.AddOnServiceId}";
+            string url = this.Url + $"delAddonServiceDetail?id={id}&addonServiceId={App.User.CartID}";
 
             var res = await client.GetAsync(url);
 
             if (res.IsSuccessStatusCode)
             {
                 var result = await res.Content.ReadAsStringAsync();
-                var count = JsonConvert.DeserializeObject<int>(result);
-
-                App.User.CartCount = count;
-
+                App.User = JsonConvert.DeserializeObject<User>(result);
                 return true;
             }
 
@@ -171,15 +165,11 @@ namespace FreshApp
             if (res.IsSuccessStatusCode)
             {
                 var result = await res.Content.ReadAsStringAsync();
-                var user = JsonConvert.DeserializeObject<User>(result);
-
-                App.User = user;
-
+                App.User = JsonConvert.DeserializeObject<User>(result);
                 return true;
             }
 
             return false;
         }
     }
-}
 }

@@ -14,6 +14,9 @@
                     <DataTemplate x:DataType="models:ServiceType">
                         <ViewCell>
                             <Grid RowDefinitions="60" ColumnDefinitions="60, *">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
+                                </Grid.GestureRecognizers>
                                 <Image HeightRequest="50" Source="{Binding IconName}"/>
                                 <Label Grid.Column="1" Text="{Binding Name}"/>
                             </Grid>

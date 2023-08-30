@@ -43,4 +43,11 @@ public partial class ServicesMenuPage : ContentPage
     {
         App.Current.MainPage = new NavigationPage(new AboutPage());
     }
+
+    private void TapGestureRecognizer_Tapped_3(object sender, TappedEventArgs e)
+    {
+        var serviceType = (ServiceType)(sender as Grid).BindingContext;
+
+        App.Current.MainPage = new NavigationPage(new ServiceSelectionPage(serviceType));
+    }
 }

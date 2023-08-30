@@ -98,6 +98,8 @@ namespace FreshApi.Controllers
 
             ent = new WSC2022SE_Session5Entities();
 
+            addonServiceDetail = ent.AddonServiceDetails.FirstOrDefault(x => x.ID == addonServiceDetail.ID);
+
             var user = ent.Users.FirstOrDefault(x => x.ID == addonServiceDetail.AddonService.User.ID);
 
             return Ok(new
