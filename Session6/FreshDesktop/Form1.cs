@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -78,6 +79,52 @@ namespace FreshDesktop
             var notBookedNight = ent.ItemPrices.ToList().Where(x => x.BookingDetails.Count == 0 || x.BookingDetails.Where(y => y.isRefund == true).Any()).Count();
             var totalavailableNight = ent.ItemPrices.ToList().Where(x => x.BookingDetails.Count == 0).Count();
             label11.Text = $"Vancay ratio: {notBookedNight} : {totalavailableNight}";
+
+            var avgScore = ent.ItemScores.ToList().Average(x => x.Value).ToString("0.00");
+            label12.Text = $"Average score for listings: {avgScore}";
+
+            var highestAvgScore = ent.Items.ToList().Select(x => new
+            {
+                Title = x.Title,
+                Avg = x.ItemScores.Any() ? x.ItemScores.Average(y => y.Value) : 0,
+            }).OrderByDescending(x => x.Avg).First().Title;
+            label13.Text = $"Name of lisitng with highest score: {highestAvgScore}";
+
+
+            var topOwners = ent.Users.ToList().Select(x => new
+            {
+                x.FullName,
+                Avg = new Func<decimal>(() => {
+                    var itemScoreCount = x.Items.SelectMany(y => y.ItemScores).Count();
+
+                    if (itemScoreCount == 0)
+                    {
+                        return 0.0m;
+                    }
+
+                    var itemSum = x.Items.SelectMany(y => y.ItemScores).Sum(y => y.Value);
+
+                    return itemSum * 1.0m / itemScoreCount;
+                })(),
+            }).ToList();
+
+            var maxValue = topOwners.Max(x => x.Avg);
+            topOwners = topOwners.Where(x => x.Avg == maxValue).ToList();
+
+            var topOwnerNames = string.Join(", ", topOwners.Select(x => x.FullName));
+            label14.Text = $"Top owner / manager by avarage score: {topOwnerNames}";
+
+            var leastCleanessOwners = ent.ItemScores.Where(x => x.ScoreID == 2).Select(x => new
+            {
+                x.Item.User.FullName,
+                x.Value
+            }).ToList();
+
+            var leastScore = leastCleanessOwners.Min(x => x.Value);
+            leastCleanessOwners = leastCleanessOwners.Where(x => x.Value == leastScore).ToList();
+
+            var leastCleanessOwnerNames = string.Join(", ", leastCleanessOwners.Distinct().Select(x => x.FullName));
+            label15.Text = $"The least clean owner / manager by avarage score: {leastCleanessOwnerNames}";
         }
 
         private void Form1_Load(object sender, EventArgs e)

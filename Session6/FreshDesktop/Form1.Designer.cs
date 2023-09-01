@@ -46,6 +46,10 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,6 +65,7 @@
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +75,7 @@
             this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Size = new System.Drawing.Size(1017, 590);
+            this.panel1.Size = new System.Drawing.Size(1115, 590);
             // 
             // pictureBox1
             // 
@@ -217,7 +222,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(713, 566);
+            this.tabControl1.Size = new System.Drawing.Size(821, 566);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -229,34 +234,74 @@
             this.tabPage1.Location = new System.Drawing.Point(24, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(685, 558);
+            this.tabPage1.Size = new System.Drawing.Size(793, 558);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Universal Report";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
-            this.groupBox5.Location = new System.Drawing.Point(345, 321);
+            this.groupBox5.Location = new System.Drawing.Point(415, 321);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(334, 223);
+            this.groupBox5.Size = new System.Drawing.Size(372, 223);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Financial Summary";
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Location = new System.Drawing.Point(6, 321);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(334, 223);
+            this.groupBox4.Size = new System.Drawing.Size(403, 223);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Scores Summary";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(23, 186);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(48, 15);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "label15";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(23, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 15);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "label12";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(23, 140);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(48, 15);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "label14";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(23, 94);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 15);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "label13";
+            // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(345, 6);
+            this.groupBox3.Location = new System.Drawing.Point(415, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(334, 309);
+            this.groupBox3.Size = new System.Drawing.Size(372, 309);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Monthly Vacancy Ratio";
@@ -271,7 +316,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(334, 309);
+            this.groupBox2.Size = new System.Drawing.Size(403, 309);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Property of Lisitng Summary";
@@ -335,7 +380,7 @@
             this.tabPage2.Location = new System.Drawing.Point(24, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(685, 558);
+            this.tabPage2.Size = new System.Drawing.Size(793, 558);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Service Report";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -345,7 +390,7 @@
             this.tabPage3.Location = new System.Drawing.Point(24, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(685, 558);
+            this.tabPage3.Size = new System.Drawing.Size(793, 558);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Host Analysis";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -353,7 +398,7 @@
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1017, 590);
+            this.ClientSize = new System.Drawing.Size(1115, 590);
             this.Name = "Form1";
             this.Text = "Seoul Stay - Reporting Dashboard";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -363,6 +408,8 @@
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -399,5 +446,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
     }
 }
