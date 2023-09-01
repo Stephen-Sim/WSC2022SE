@@ -44,9 +44,47 @@ namespace FreshDesktop
             comboBox3.SelectedIndex = -1;
         }
 
+        void loadUniversalReport()
+        {
+            var securedBookings = ent.BookingDetails.ToList()
+                .Where(x => x.Booking.BookingDate.Date <= DateTime.Today.Date && x.isRefund == false).Count();
+            label6.Text = $"Secured past bookings: {securedBookings}";
+
+            var upcomingbookings = ent.BookingDetails.ToList()
+                .Where(x => x.Booking.BookingDate.Date > DateTime.Today.Date && x.isRefund == false).Count();
+            label7.Text = $"Upcoming bookings(reservation): {upcomingbookings}";
+
+            var mostDayOfWeekbooked = ent.BookingDetails.ToList()
+                .Where(x => x.Booking.BookingDate.Date <= DateTime.Today.Date && x.isRefund == false).GroupBy(x => new
+                {
+                    x.Booking.BookingDate.DayOfWeek,
+                })
+                .Select(x => new { 
+                    x.Key.DayOfWeek,
+                    Count = x.Count()
+                }).OrderByDescending(x => x.Count).ToList().First().DayOfWeek.ToString();
+            label8.Text = $"Most booked day of week: {mostDayOfWeekbooked}";
+
+            var inactiveListingsCount = ent.Items.ToList().Where(x => x.ItemPrices.Count == 0).Count();
+            label9.Text = $"Inactive listings or properties: {inactiveListingsCount}";
+
+            var mostUsedCoupon = ent.Coupons.ToList().Select(x => new
+            {
+                x.CouponCode,
+                Count = x.Bookings.Count()
+            }).OrderByDescending(x => x.Count).First().CouponCode;
+            label10.Text = $"Most used coupon: {mostUsedCoupon}";
+
+            var notBookedNight = ent.ItemPrices.ToList().Where(x => x.BookingDetails.Count == 0 || x.BookingDetails.Where(y => y.isRefund == true).Any()).Count();
+            var totalavailableNight = ent.ItemPrices.ToList().Where(x => x.BookingDetails.Count == 0).Count();
+            label11.Text = $"Vancay ratio: {notBookedNight} : {totalavailableNight}";
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             clearFilter();
+
+            loadUniversalReport();
         }
 
         private void button2_Click(object sender, EventArgs e)

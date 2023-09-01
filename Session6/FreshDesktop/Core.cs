@@ -31,7 +31,7 @@ namespace FreshDesktop
                 pfc.AddFontFile("OpenSans-Regular.ttf");
 
                 this.panel1.Font = new Font(pfc.Families[0], 9f);
-                this.panel1.ForeColor = Color.FromArgb(187, 187, 187);
+                // this.panel1.ForeColor = Color.FromArgb(187, 187, 187);
             }
             catch (Exception)
             {
@@ -48,7 +48,7 @@ namespace FreshDesktop
                 if (control.GetType() == typeof(Button))
                 {
                     ((Button)control).BackColor = Color.FromArgb(51, 51, 51);
-                    ((Button)control).ForeColor = Color.FromArgb(187, 187, 187);
+                    // ((Button)control).ForeColor = Color.FromArgb(187, 187, 187);
 
                     if (((Button)control).Text.ToLower().Contains("cancel") || ((Button)control).Text.ToLower().Contains("delete"))
                     {
