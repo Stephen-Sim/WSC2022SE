@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace FreshDesktop
 {
@@ -24,7 +25,6 @@ namespace FreshDesktop
         void clearFilter()
         {
             dateTimePicker1.Value = new DateTime(2022, 01, 01);
-            dateTimePicker2.Value = new DateTime(2022, 01, 01);
 
             var areas = ent.Areas.ToList().OrderBy(a => a.Name).ToList();
             comboBox1.DataSource = areas;
@@ -47,6 +47,7 @@ namespace FreshDesktop
 
         void loadUniversalReport()
         {
+            // Property of Lisitng Summary
             var securedBookings = ent.BookingDetails.ToList()
                 .Where(x => x.Booking.BookingDate.Date <= DateTime.Today.Date && x.isRefund == false).Count();
             label6.Text = $"Secured past bookings: {securedBookings}";
@@ -80,6 +81,7 @@ namespace FreshDesktop
             var totalavailableNight = ent.ItemPrices.ToList().Where(x => x.BookingDetails.Count == 0).Count();
             label11.Text = $"Vancay ratio: {notBookedNight} : {totalavailableNight}";
 
+            // Scores Summary
             var avgScore = ent.ItemScores.ToList().Average(x => x.Value).ToString("0.00");
             label12.Text = $"Average score for listings: {avgScore}";
 
@@ -125,6 +127,39 @@ namespace FreshDesktop
 
             var leastCleanessOwnerNames = string.Join(", ", leastCleanessOwners.Distinct().Select(x => x.FullName));
             label15.Text = $"The least clean owner / manager by avarage score: {leastCleanessOwnerNames}";
+
+            // Monthly Vacancy Ratio
+            var date = dateTimePicker2.Value;
+            var firstDayOfCurrentMonth = new DateTime(date.Year, date.Month, 1);
+            var threeMonthsAgo = firstDayOfCurrentMonth.AddMonths(-3); // Calculate the date three months ago
+
+            var lastThreeMonthVacancyRatio = ent.ItemPrices.ToList()
+                .Where(x => x.Date >= threeMonthsAgo && x.Date < firstDayOfCurrentMonth) // Filter data for the last three months
+                .GroupBy(x => new
+                {
+                    Month = x.Date.ToString("MMM"),
+                })
+                .Select(x => new
+                {
+                    Month = x.Key.Month,
+                    BookedCount = x.Count(y => y.BookingDetails.Count() > 0),
+                    NotBookedCount = x.Count(y => y.BookingDetails.Count() == 0)
+                })
+                .ToList();
+
+            chart1.Series[0].Name = "Vacant";
+            chart1.Series[1].Name = "Reserved";
+
+            chart1.Series[0].Points.Clear();
+            chart1.Series[1].Points.Clear();
+
+            foreach (var item in lastThreeMonthVacancyRatio)
+            {
+                chart1.Series[0].Points.AddXY(item.Month, item.BookedCount);
+                chart1.Series[1].Points.AddXY(item.Month, item.NotBookedCount);
+            }
+
+            //Financial Summary
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -137,6 +172,11 @@ namespace FreshDesktop
         private void button2_Click(object sender, EventArgs e)
         {
             clearFilter();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadUniversalReport();
         }
     }
 }
