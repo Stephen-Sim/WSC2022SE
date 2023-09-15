@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
@@ -160,6 +161,99 @@ namespace FreshDesktop
             }
 
             //Financial Summary
+            var avgNetRevenue = ent.BookingDetails.ToList().Select(x => new
+            {
+                Price = new Func<decimal?>(() =>
+                {
+                    if (x.isRefund == true)
+                    {
+                        TimeSpan difference = x.ItemPrice.Date - (DateTime)x.RefundDate;
+                        var numberOfDays = difference.Days;
+
+                        if (x.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
+                        {
+                            var percent = x.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
+                            return x.ItemPrice.Price * (1 - percent) / 2;
+                        }
+
+                        return 0;
+                    }
+
+                    var itemPrice = x.ItemPrice;
+                    var booking = x.Booking;
+                    var discount = booking.BookingDetails.Sum(y => y.ItemPrice.Price) - booking.AmountPaid;
+                    var couponPercent = itemPrice.Price / booking.BookingDetails.Sum(y => y.ItemPrice.Price);
+                    var commission = itemPrice.Price * (itemPrice.CancellationPolicy.Commission / 100);
+
+                    return itemPrice.Price - (1 - couponPercent * discount) - commission;
+                })(),
+                x.ItemPrice.Item.UserID
+            }).Sum(x => x.Price) / ent.Users.Count();
+            label16.Text = $"Average net revenue of all owners / managers: {avgNetRevenue?.ToString("0.00")}";
+
+            var hightestNetRevenueofanOwner = ent.BookingDetails.ToList().Select(x => new
+            {
+                Price = new Func<decimal?>(() =>
+                {
+                    if (x.isRefund == true)
+                    {
+                        TimeSpan difference = x.ItemPrice.Date - (DateTime)x.RefundDate;
+                        var numberOfDays = difference.Days;
+
+                        if (x.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
+                        {
+                            var percent = x.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
+                            return x.ItemPrice.Price * (1 - percent) / 2;
+                        }
+
+                        return 0;
+                    }
+
+                    var itemPrice = x.ItemPrice;
+                    var booking = x.Booking;
+                    var discount = booking.BookingDetails.Sum(y => y.ItemPrice.Price) - booking.AmountPaid;
+                    var couponPercent = itemPrice.Price / booking.BookingDetails.Sum(y => y.ItemPrice.Price);
+                    var commission = itemPrice.Price * (itemPrice.CancellationPolicy.Commission / 100);
+                    
+                    return itemPrice.Price - (1 - couponPercent * discount) - commission;
+                })(),
+                x.ItemPrice.Item.UserID
+            }).GroupBy(x => new
+            {
+                x.UserID
+            }).Select(x => new
+            {
+                x.Key.UserID,
+                TotalRevenue = x.Sum(y => y.Price)
+            }).OrderByDescending(x => x.TotalRevenue).First().TotalRevenue;
+            label17.Text = $"Highest net revenue for an owner / manager: {hightestNetRevenueofanOwner?.ToString("0.00")}";
+
+            var totalRevenueCancel = ent.BookingDetails.ToList().Where(x => x.isRefund == true).Select(x => new
+            {
+                RefundCommission = new Func<decimal?>(() =>
+                {
+                    TimeSpan difference = x.ItemPrice.Date - (DateTime)x.RefundDate;
+                    var numberOfDays = difference.Days;
+                    
+                    if (x.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
+                    {
+                        var percent = x.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
+                        return x.ItemPrice.Price * (1 - percent);
+                    }
+
+                    return 0;
+                })()
+            }).Sum(x => x.RefundCommission / 2);
+            label18.Text = $"Our total revenue from cancellations: {totalRevenueCancel?.ToString("0.00")}";
+
+            var totalCouponDiscount = ent.BookingDetails.ToList().Where(x => x.Booking.Coupon != null).Sum(x => x.ItemPrice.Price) - ent.Bookings.Where(x => x.Coupon != null).Sum(x => x.AmountPaid);
+
+            label19.Text = $"Total discount from coupon: {totalCouponDiscount?.ToString("0.00")}";
+        }
+
+        void loadServiceReport()
+        {
+            // var totalservice = ent.AddonServices.
         }
 
         private void Form1_Load(object sender, EventArgs e)
