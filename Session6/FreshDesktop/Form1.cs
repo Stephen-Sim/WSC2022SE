@@ -203,7 +203,7 @@ namespace FreshDesktop
                         if (x.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
                         {
                             var percent = x.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
-                            return x.ItemPrice.Price * (1 - percent) / 2;
+                            return x.ItemPrice.Price * percent / 2;
                         }
 
                         return 0;
@@ -238,7 +238,7 @@ namespace FreshDesktop
                     if (x.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
                     {
                         var percent = x.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
-                        return x.ItemPrice.Price * (1 - percent);
+                        return x.ItemPrice.Price * percent;
                     }
 
                     return 0;
@@ -253,7 +253,73 @@ namespace FreshDesktop
 
         void loadServiceReport()
         {
-            // var totalservice = ent.AddonServices.
+            var totalservice = ent.AddonServiceDetails.ToList().Where(x => x.FromDate.Date < DateTime.Now.Date).Count();
+            label23.Text = totalservice.ToString();
+
+            var mostBookedService = ent.AddonServiceDetails.ToList().GroupBy(x => new { x.Service })
+                .Select(x => new {
+                    Name = x.Key.Service.Name,
+                    Count = x.Count()
+                }).ToList().OrderByDescending(x => x.Count).First().Name;
+            label24.Text = mostBookedService;
+
+            var totalRevenue = ent.AddonServices.ToList().Select(x => new
+            {
+                TotalPrice = new Func<decimal>(() =>
+                {
+                    var total = x.AddonServiceDetails.Sum(y => y.Price);
+
+                    if (x.CouponID != null)
+                    {
+                        var discount = total * (x.Coupon.DiscountPercent / 100) > x.Coupon.MaximimDiscountAmount ? x.Coupon.MaximimDiscountAmount : total * (x.Coupon.DiscountPercent / 100);
+                        total -= discount;
+                    }
+
+                    return total;
+                })()
+            }).Sum(x => x.TotalPrice);
+
+            label25.Text = totalRevenue.ToString("0.00");
+
+            var datas = ent.ServiceTypes.ToList().Select(x => new
+            {
+                x.Name,
+                Availability = new Func<bool>(() =>
+                {
+                    if (x.Services.Count() == 0)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                })()
+            }).ToList();
+
+            var start = new DateTime(dateTimePicker1.Value.Date.Year, dateTimePicker1.Value.Date.Month, 1);
+            var end = new DateTime(dateTimePicker2.Value.Date.Year, dateTimePicker2.Value.Date.Month, 1);
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+
+            foreach (var item in datas)
+            {
+                dataGridView2.Rows.Add(item.Name);
+            }
+
+            for (var i = new DateTime(DateTime.Now.Year, 1, 1); i < new DateTime(DateTime.Now.Year + 1, 1, 1); i = i.AddMonths(1))
+            {
+                dataGridView1.Columns.Add("", i.ToString("MMM"));
+            }
+
+            for (int i = 0; i < datas.Count(); i++)
+            {
+                dataGridView1.Rows.Add();
+
+                if (datas[i].Availability)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -261,6 +327,8 @@ namespace FreshDesktop
             clearFilter();
 
             loadUniversalReport();
+            loadServiceReport();
+            loadHostAnalysis();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -270,7 +338,245 @@ namespace FreshDesktop
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (dateTimePicker1.Value.Date > dateTimePicker2.Value.Date)
+            {
+                return;
+            }
             loadUniversalReport();
+
+            var start = new DateTime(dateTimePicker1.Value.Date.Year, dateTimePicker1.Value.Date.Month, 1);
+            var end = new DateTime(dateTimePicker2.Value.Date.Year, dateTimePicker2.Value.Date.Month, 1);
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+
+            var datas = ent.ServiceTypes.ToList().Select(x => new
+            {
+                x.Name,
+                Availability = new Func<bool>(() =>
+                {
+                    if (x.Services.Count() == 0)
+                    {
+                        return false;
+                    }
+
+                    return true;
+                })()
+            }).ToList();
+
+            for (var i = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, 1); i < new DateTime(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month, 1); i = i.AddMonths(1))
+            {
+                dataGridView1.Columns.Add("", i.ToString("MMM"));
+            }
+
+            for (int i = 0; i < datas.Count(); i++)
+            {
+                dataGridView1.Rows.Add();
+
+                if (datas[i].Availability)
+                {
+                    dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+
+        void loadHostAnalysis()
+        {
+            var users = ent.BookingDetails.ToList().Select(x => new
+            {
+                NetPrice = new Func<decimal>(() =>
+                {
+                    if (x.isRefund == true)
+                    {
+                        TimeSpan difference = x.ItemPrice.Date - (DateTime)x.RefundDate;
+                        var numberOfDays = difference.Days;
+
+                        if (x.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
+                        {
+                            var percent = x.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
+                            return x.ItemPrice.Price * percent / 2;
+                        }
+
+                        return 0;
+                    }
+
+                    var itemPrice = x.ItemPrice;
+                    var booking = x.Booking;
+                    var discount = booking.BookingDetails.Sum(y => y.ItemPrice.Price) - booking.AmountPaid;
+                    var couponPercent = itemPrice.Price / booking.BookingDetails.Sum(y => y.ItemPrice.Price);
+                    var commission = itemPrice.Price * (itemPrice.CancellationPolicy.Commission / 100);
+
+                    return (decimal)(itemPrice.Price - (1 - couponPercent * discount) - commission);
+                })(),
+                Total = new Func<decimal>(() =>
+                {
+                    if (x.isRefund == true)
+                    {
+                        TimeSpan difference = x.ItemPrice.Date - (DateTime)x.RefundDate;
+                        var numberOfDays = difference.Days;
+
+                        if (x.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
+                        {
+                            var percent = x.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
+                            return x.ItemPrice.Price * percent / 2;
+                        }
+
+                        return 0;
+                    }
+
+                    var itemPrice = x.ItemPrice;
+                    var booking = x.Booking;
+                    var discount = booking.BookingDetails.Sum(y => y.ItemPrice.Price) - booking.AmountPaid;
+
+                    return itemPrice.Price;
+                })(),
+                Balance = new Func<decimal>(() =>
+                {
+                    var booking = x.Booking;
+
+                    if (x.Booking.Transaction.TransactionTypeID == 1)
+                    {
+                        return 0;
+                    }
+
+                    if (x.isRefund == true)
+                    {
+                        TimeSpan difference = x.ItemPrice.Date - (DateTime)x.RefundDate;
+                        var numberOfDays = difference.Days;
+
+                        if (x.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
+                        {
+                            var percent = x.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
+                            return x.ItemPrice.Price * percent / 2;
+                        }
+
+                        return 0;
+                    }
+
+                    var itemPrice = x.ItemPrice;
+                    var discount = booking.BookingDetails.Sum(y => y.ItemPrice.Price) - booking.AmountPaid;
+                    var couponPercent = itemPrice.Price / booking.BookingDetails.Sum(y => y.ItemPrice.Price);
+                    var commission = itemPrice.Price * (itemPrice.CancellationPolicy.Commission / 100);
+
+                    return (decimal)(itemPrice.Price - (1 - couponPercent * discount) - commission);
+                })(),
+                x.ItemPrice.Item.UserID,
+                x.ItemPrice.Item.User.FullName,
+            }).GroupBy(x => new
+            {
+                x.UserID,
+                x.FullName,
+            }).Select(x => new
+            {
+                x.Key.UserID,
+                x.Key.FullName,
+                Total = x.Sum(y => y.Total),
+                TotalNetRevenue = x.Sum(y => y.NetPrice),
+                Totalbalance = x.Sum(y => y.Balance),
+            }).ToList();
+
+            var allusers = ent.Users.Where(x => x.Items.Count() != 0).ToList();
+
+            dataGridView3.Rows.Clear();
+
+            foreach (var user in allusers)
+            {
+                if (users.Any(x => x.UserID == user.ID))
+                {
+                    var tempUser = users.FirstOrDefault(x => x.UserID == user.ID);
+                    dataGridView3.Rows.Add(tempUser.UserID, tempUser.FullName, "$" + tempUser.Total.ToString("0.00"), "$" + tempUser.TotalNetRevenue.ToString("0.00"), "$" + tempUser.Totalbalance.ToString("0.00"));
+                }
+                else
+                {
+                    dataGridView3.Rows.Add(user.ID, user.FullName);
+                }
+            }
+        }
+
+        public class rowData
+        {
+            public rowData(string date, string amount, string com, string desc)
+            {
+                this.date = date;
+                this.amount = amount;
+                this.com = com;
+                this.desc = desc;
+            }
+
+            public string date { get; set; }
+            public string amount { get; set; }
+            public string com { get; set; }
+            public string desc { get; set; }
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var userId = long.Parse(dataGridView3.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            var user = ent.Users.FirstOrDefault(x => x.ID == userId);
+            label26.Text = $"Transaction detail for {user.FullName}";
+
+            var trans = ent.Transactions.ToList();
+
+            dataGridView4.Rows.Clear();
+
+            var rowDatas = new List<rowData>();
+
+            foreach (var tran in trans)
+            {
+                rowDatas.Add(new rowData(tran.TransactionDate.ToString("dd/MM/yyyy"), new Func<string>(() =>
+                {
+                    var booking = ent.Bookings.FirstOrDefault(x => x.TransactionID == tran.ID);
+
+                    var sum = booking.BookingDetails.Sum(x => x.ItemPrice.Price *  (1 - x.ItemPrice.CancellationPolicy.Commission / 100));
+
+                    return $"$ {sum.ToString("0.00")}";
+                })(),
+                new Func<string>(() =>
+                {
+                    var booking = ent.Bookings.FirstOrDefault(x => x.TransactionID == tran.ID);
+
+                    var sum = booking.BookingDetails.Sum(x => x.ItemPrice.Price * x.ItemPrice.CancellationPolicy.Commission / 100);
+
+                    return $"$ {sum.ToString("0.00")}";
+                })(),
+                new Func<string>(() =>
+                {
+                    var booking = ent.Bookings.FirstOrDefault(x => x.TransactionID == tran.ID);
+
+                    var firstItemPriceDate = booking.BookingDetails.OrderBy(x => x.ItemPrice.Date).First().ItemPrice.Date;
+                    var lastItemPriceDate = booking.BookingDetails.OrderByDescending(x => x.ItemPrice.Date).First().ItemPrice.Date;
+
+                    string str = string.Join(",", booking.BookingDetails.Select(x => x.ItemPrice.Item.Title));
+                    return $"Reserve {str} from {firstItemPriceDate.ToString("dd/MM/yyyy")}-{lastItemPriceDate.ToString("dd/MM/yyyy")}";
+                })()));
+            }
+
+            var bookingRefunds = ent.BookingDetails.ToList().Where(x => x.isRefund == true).ToList();
+
+            foreach (var bookingRefund in bookingRefunds)
+            {
+                TimeSpan difference = bookingRefund.ItemPrice.Date - (DateTime)bookingRefund.RefundDate;
+                var numberOfDays = difference.Days;
+                var amount = bookingRefund.ItemPrice.Price;
+                var com = 0.00m;
+
+                if (bookingRefund.ItemPrice.CancellationPolicy.CancellationRefundFees.Any(y => y.DaysLeft == numberOfDays))
+                {
+                    var percent = bookingRefund.ItemPrice.CancellationPolicy.CancellationRefundFees.FirstOrDefault(y => y.DaysLeft == numberOfDays).PenaltyPercentage / 100;
+                    amount = bookingRefund.ItemPrice.Price * (1 - percent);
+                    com = bookingRefund.ItemPrice.Price * percent / 2;
+                }
+
+                rowDatas.Add(new rowData(bookingRefund.RefundDate?.ToString("dd/MM/yyyy"), $"$ {amount.ToString("0.00")}", $"$ {com.ToString("0.00")}", $"Cancel {bookingRefund.ItemPrice.Item.Title} from {bookingRefund.ItemPrice.Date.ToString("dd/MM/yyyy")}"));
+            }
+
+            rowDatas = rowDatas.OrderBy(x => x.date).ThenByDescending(x => x.desc).ToList();
+
+            foreach(var rowData in rowDatas)
+            {
+                dataGridView4.Rows.Add(rowData.date, rowData.amount, rowData.com, rowData.desc);
+            }
         }
     }
 }
