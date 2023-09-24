@@ -71,6 +71,9 @@ namespace FreshDesktop
             var inactiveListingsCount = ent.Items.ToList().Where(x => x.ItemPrices.Count == 0).Count();
             label9.Text = $"Inactive listings or properties: {inactiveListingsCount}";
 
+            var cancalledReservations = ent.BookingDetails.Where(x => x.isRefund == true).Count();
+            label27.Text = $"Cancelled reservations: {cancalledReservations}";
+
             var mostUsedCoupon = ent.Coupons.ToList().Select(x => new
             {
                 x.CouponCode,
