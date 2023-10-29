@@ -11,5 +11,6 @@ namespace FreshApp.Models
         public long ID { get; set; }
         public string Title { get; set; }
         public string Date { get; set; }
+        public color Color { get; set; }
     }
 }

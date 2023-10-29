@@ -1,6 +1,7 @@
 ﻿using FreshApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -38,7 +39,8 @@ namespace FreshApi.Controllers
             {
                 x.ID,
                 x.Title,
-                Date = x.ItemPrices.Any() ? x.ItemPrices.OrderByDescending(y => y.Date).First().Date.ToString("yyyy/MM/dd") : System.DateTime.Today.AddDays(5).ToString("yyyy/MM/dd"),
+                Date = x.ItemPrices.Any() ? x.ItemPrices.Max(y => y.Date).Date.ToString("yyyy/MM/dd") : "There is no availablity.",
+                Color = x.ItemPrices.Any(y => y.Date >= DateTime.Now && y.Date <= DateTime.Now.AddDays(5)) ? Color.Black : Color.Red
             });
 
             return Ok(items);

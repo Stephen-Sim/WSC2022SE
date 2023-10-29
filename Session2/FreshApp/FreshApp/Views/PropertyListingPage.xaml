@@ -17,7 +17,7 @@
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="Last date of pricing: "/>
-                                            <Span Text="{Binding Date}" TextColor="#e51a2e"/>
+                                            <Span Text="{Binding Date}" TextColor="{Binding Color}"/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>

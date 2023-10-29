@@ -10,7 +10,7 @@ namespace FreshApp
 {
     public class ApiService
     {
-        public string Url { get; set; } = "http://192.168.0.151:45455/api/get/";
+        public string Url { get; set; } = "http://10.131.77.71:45455/api/get/";
         public HttpClient client { get; set; }
 
         public ApiService()
